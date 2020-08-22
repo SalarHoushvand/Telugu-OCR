@@ -8,7 +8,7 @@ from PIL import Image
 # defining path for uploading images
 dir_path = os.path.dirname(os.path.realpath(__file__))
 UPLOAD_FOLDER = dir_path + '/static/images'
-tess.pytesseract.tesseract_cmd = os.environ.get('TESSDATA_PREFIX')
+tess.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 # making app for flask
