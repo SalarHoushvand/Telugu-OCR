@@ -2,11 +2,12 @@ import os
 from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 import pytesseract as tess
-tess.pytesseract.tesseract_cmd = r'Tesseract-OCR\tesseract.exe'
+
 from PIL import Image
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 UPLOAD_FOLDER = dir_path + '/static/images'
+tess.pytesseract.tesseract_cmd = dir_path+'/Tesseract-OCR/tesseract.exe'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
@@ -41,7 +42,5 @@ def upload_file():
     return render_template('index.html')
 
 
-if __name__ == '__main__':
-    app.debug = True
-    ip = '127.0.0.1'
-    app.run(host=ip)
+if __name__ == "__main__":
+	app.run()
